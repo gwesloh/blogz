@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<style>
+textarea{
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid black;
+}
+label {
+    vertical-align: top;
+}
+
+ul{
+                    color: red;
+                    font-weight: bold;
+                    font-style: italic;
+                    
+                }
+</style>
+
+<form action="/newpost" method="post">
+    <p><label>Blog Post Title: <input type="text" name="blog_title"/></label></p>
+    {% with title_errors = get_flashed_messages(category_filter=["title_error"]) %}
+    {% if title_errors %}
+      <ul>
+        {%- for msg in title_errors %}
+        <li>{{ msg }}</li>
+        {% endfor -%}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    </p>
+    <p><label>Body of the Blog Post: <textarea name="blog_body"></textarea></label></p>
+    {% with body_errors = get_flashed_messages(category_filter=["body_error"]) %}
+    {% if body_errors %}
+      <ul>
+        {%- for msg in body_errors %}
+        <li>{{ msg }}</li>
+        {% endfor -%}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    </p>
+    
+    <p><input type="submit" value="Submit Post"/></p>
+  </form>
+
+  {% endblock %}

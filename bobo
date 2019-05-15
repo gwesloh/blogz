@@ -1,0 +1,7 @@
+<form action="/newpost" method="post">
+    <p><label>Blog Post Title<input type="text" name="blog_title" value="blog_title"/></label></p>
+    <p><label>Body of the Blog Post<input type="text" name="blog_body" value="blog_body"/></label></p>
+    <p><input type="submit" value="Submit Post"/></p>
+  </form>
+
+  {% endblock %}
