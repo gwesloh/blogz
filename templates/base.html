@@ -1,22 +1,36 @@
 <!doctype html>
 <html>
-        <head> 
-                <style> ul{
+    <head>
+            <style>
+                ul{
+                    color: red;
+                    font-weight: bold;
+                    font-style: italic;
+                    
+                }
+            </style>
 
-                        list-style: none
-                           }
-                        </style>
-                        
-                <title>Parenthood Struggle</title> 
-                <a href="/">Main Blog Page</a>
-                <a href="/newpost">Add a New Blog Post</a>  
-        </head>
-<body>
-        <h1>ParenthoodStruggle.com</h1>
-        <H4>The Parenthood Struggle is Real</H4>
+        <title>Blogz</title>
+        <a href="login">Login</a>
+        <a href="signup">Create Account</a>
+        <a href="/">Home</a>
+        <a href="/blog">All Blogs</a>
+        <a href="/newpost">Add a New Blog Post</a> 
+    </head>
+    <body>
+        <div style='float: right'>
+          {% if 'user' in session %}
+            {{ session['user'] }}
+            <form action="/logout" method="post" id='logout'>
+              <input type="submit" value="Log Out" />
+            </form>
+          {% endif %}
+        </div>
 
-    {% block content %}
-    {% endblock %}
+
+    
+{% block content %}
+{% endblock %}
 
 </body>
 </html>

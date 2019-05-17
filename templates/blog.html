@@ -2,9 +2,11 @@
 
 {% block content %}
   
-
+            
+          
 {% if posts|length == 0 %}
 <p>No blog posts yet</p>
+
 {% else %}
 
     <ul>
@@ -12,11 +14,14 @@
         <li><a href="/blog?id={{blog.id}}" ><h1>{{blog.blog_title}}</h1></a>
 
             <p>{{blog.blog_body}}</p>
-            
+                <li><a href="/blog?user={{blog.owner.id}}" ><h5>written by {{blog.owner.username}}</h5></a>
+                </li>
+           
         </li>
         {% endfor %}
+{% endif %}
     </ul>
 
-{% endif %}
+
 
 {% endblock %}
